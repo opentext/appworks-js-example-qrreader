@@ -1,4 +1,4 @@
-# AppWorks Example - Auth
+# AppWorks Example - QRReader
 
 ## Contents
 1. [About appworks.js](#about-appworksjs)
