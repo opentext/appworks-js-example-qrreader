@@ -16,7 +16,7 @@ For more information, see the appworks.js repository: https://github.com/opentex
 
 ## About this example
 
-The purpose of the QRReader plugin read QR codes.
+The purpose of the QRReader plugin is to read QR codes or Barcodes.
 
 ## Usage
 
@@ -35,7 +35,7 @@ Call QRReader.scan to open the camera and point it at a QR code. The contents of
 
 Examples
 ```javascript
-var qr = new Appworks.QRReader(
+var reader = new Appworks.QRReader(
   function(result) {
     console.log(result);
   },
@@ -43,7 +43,43 @@ var qr = new Appworks.QRReader(
     console.log(error);
   });
 
-qr.scan();
+reader.scan();
+```
+
+#### barcode
+
+```javascript
+Appworks.QRReader(successHandler: any, errorHandler: any)
+barcode(multiple, timeout, finishTitle, cancelTitle);
+```
+
+Create an instance of QRReader with the success and error handlers.
+Call QRReader.scan to open the camera and point it at a QR code. The contents of which will be returned to the success handler.
+
++ __successHandler__: will return a string array of barcode contents
++ __errorHandler__: will return a string if user cancels
++ __multiple__: If true, scan barcodes until users taps finish. If false, scan a single barcode and finish automatically. (Defaults to false if not provided)
++ __timeout__: The number of seconds of idle (no barcode scan) before automatically finishing. (defaults to 30 if not provided)
++ __finishTitle__: A custom title for the finish button (defaults to "Finished" if not provided)
++ __cancelTitle__: A custom title for the cancel button (defaults to "Cancel" if not provided)
+
+Examples
+```javascript
+
+var multiple = true;
+var timeout = 30;
+var finishTitle = 'All Done';
+var cancelTitle = 'End Scanning';
+
+var reader = new Appworks.QRReader(
+  function(result) {
+    console.log(result);
+  },
+  function(error) {
+    console.log(error);
+  });
+
+reader.barcode(multiple, timeout, finishTitle, cancelTitle);
 ```
 
 ## Installation

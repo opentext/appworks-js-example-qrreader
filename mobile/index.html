@@ -15,20 +15,23 @@
     <div id="intro-wrapper">
       <div id="intro">
         <div style="font-weight:bold; text-align:center; margin-bottom:8px;">AppWorks QR Reader Demo</div>
-        <p>This demo makes use of the QR Reader within AppWorks</P>
-        <p><b>&quot;Scan&quot;</b> will open the camera and look for a QR code. Upon success, the content will be displayed.</p>
+        <p>This demo makes use of the QR/Barcode scanner within AppWorks</P>
+        <p><b>&quot;Scan&quot;</b> will open the camera and look for a QR/Barcode image. Upon success, the contents will be displayed.</p>
       </div>
     </div>
 
     <div id="content-wrapper">
-      <div><button type="button" id="go0-button" class="go-button vertical-space" onclick="scan();">Scan</button></div>
+      <div><button type="button" id="go0-button" class="go-button vertical-space" onclick="scanQr();">Scan QR</button></div>
+      <div><button type="button" id="go1-button" class="go-button vertical-space" onclick="scanBarcode(false, 30, 'Finished', 'Cancel');">Scan 1 Barcode</button></div>
+      <div><button type="button" id="go2-button" class="go-button vertical-space" onclick="scanBarcode(true, 30, 'Finished', 'Cancel');">Scan Multiple Barcodes</button></div>
     </div>
 
     <div id="result-wrapper">
       <div id="result">
         Result will appear here.
-    </div>
+      </div>
+  </div>
 
-    <div id="version">Version 0.0.1</div>
+    <div id="version">Version 0.1.0</div>
   </body>
 </html>

@@ -1,13 +1,25 @@
-function scan() {
-  var qr = new Appworks.QRReader(
+function scanQr() {
+  var reader = new Appworks.QRReader(
     function(result){
       out(result);
     },
     function(error){
       out(error);
     });
-    
-  qr.scan();
+
+  reader.scan();
+}
+
+function scanBarcode(multiple, timeout, finishTitle, cancelTitle) {
+  var reader = new Appworks.QRReader(
+    function(result){
+      out(result);
+    },
+    function(error){
+      out(error);
+    });
+
+  reader.barcode(multiple, timeout, finishTitle, cancelTitle);
 }
 
 function out(message) {
